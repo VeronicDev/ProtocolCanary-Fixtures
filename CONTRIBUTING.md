@@ -14,6 +14,19 @@ script:
 
 To add one:
 
+**Short version** (the detailed walkthrough follows below):
+
+- **Source it** — identify the upstream behavior from an authoritative source
+  you have actually checked, and record it in `source_reference` plus a header
+  comment explaining how the expected value was derived.
+- **Write it** — stable, repository-unique `p<protocol>-<surface>-<slug>` ID;
+  deterministic input; an explicit expected result using the surface's typed
+  assertion vocabulary.
+- **Check it** — run `python3 tools/validate/validate.py`.
+- **Document & test it** — update the relevant `docs/protocol-NN.md` table
+  (and the pack's `README.md` for a new CAP or surface), then run
+  `python3 -m unittest discover tests`.
+
 1. **Identify the upstream behavior.** Read the CAP text, the upstream XDR
    definition, the upstream implementation, or the official release/API
    docs — in that order of preference. Never cite a source you have not
